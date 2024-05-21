@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS for Admin Dashboard */
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+        .btn-approve {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .btn-reject {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <!-- Overview Cards -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Pending Requests</h5>
+                        <p class="card-text">5 new requests</p>
+                    </div>
+                </div>
+            </div>
+            <!-- More overview cards -->
+        </div>
+        <!-- Pending Requests Table -->
+        <h2>Pending Requests</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Recruiter Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>john@example.com</td>
+                    <td>
+                        <button class="btn btn-success btn-approve" data-toggle="modal" data-target="#confirmApproveModal">Approve</button>
+                        <button class="btn btn-danger btn-reject" data-toggle="modal" data-target="#confirmRejectModal">Reject</button>
+                    </td>
+                </tr>
+                <!-- More rows for pending requests -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Confirmation Modals -->
+    <div class="modal" id="confirmApproveModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Approval</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to approve this recruiter?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="confirmApproveBtn">Approve</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmRejectModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Rejection</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to reject this recruiter?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmRejectBtn">Reject</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript for Admin Dashboard
+
+        // Event listener for confirm approve button
+        document.getElementById('confirmApproveBtn').addEventListener('click', function() {
+            // Your logic to approve recruiter goes here
+            alert("Recruiter approved!");
+            $('#confirmApproveModal').modal('hide');
+        });
+
+        // Event listener for confirm reject button
+        document.getElementById('confirmRejectBtn').addEventListener('click', function() {
+            // Your logic to reject recruiter goes here
+            alert("Recruiter rejected!");
+            $('#confirmRejectModal').modal('hide');
+        });
+    </script>
+</body>
+</html>

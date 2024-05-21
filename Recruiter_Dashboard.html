@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruiter Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS for Recruiter Dashboard */
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .job-card {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recruiter Dashboard</h1>
+        <!-- Overview Cards -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Jobs Posted</h5>
+                        <p class="card-text">10</p>
+                    </div>
+                </div>
+            </div>
+            <!-- More overview cards -->
+        </div>
+        <!-- Job Listings -->
+        <h2>Job Listings</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card job-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Job Title</h5>
+                        <p class="card-text">Job Description</p>
+                        <a href="#" class="btn btn-primary btn-apply" data-toggle="modal" data-target="#confirmApplyModal">Apply</a>
+                    </div>
+                </div>
+            </div>
+            <!-- More job cards -->
+        </div>
+    </div>
+
+    <!-- Confirmation Modal for Apply -->
+    <div class="modal" id="confirmApplyModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Application</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to apply for this job?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="confirmApplyBtn">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript for Recruiter Dashboard
+
+        // Event listener for confirm apply button
+        document.getElementById('confirmApplyBtn').addEventListener('click', function() {
+            // Your logic to apply for the job goes here
+            alert("Job applied successfully!");
+            $('#confirmApplyModal').modal('hide');
+        });
+    </script>
+</body>
+</html>
